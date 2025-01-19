@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse } from '@vercel/node'
+import type { NextApiRequest, NextApiResponse } from 'next'
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = process.env.SUPABASE_URL!
@@ -6,8 +6,8 @@ const supabaseAnonKey = process.env.SUPABASE_ANON_KEY!
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export default async function handler(
-  req: VercelRequest,
-  res: VercelResponse
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', 'true')
